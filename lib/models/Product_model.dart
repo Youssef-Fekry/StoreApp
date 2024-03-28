@@ -6,6 +6,7 @@ class ProductModel {
   final String category;
   final String image;
   final RatingModel ratingModel;
+
   ProductModel({
     required this.id,
     required this.title,
@@ -15,6 +16,7 @@ class ProductModel {
     required this.image,
     required this.ratingModel,
   });
+
   factory ProductModel.fromJason(jasonData) {
     return ProductModel(
       id: jasonData['id'],
