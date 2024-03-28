@@ -5,6 +5,7 @@ class ProductModel {
   final String description;
   final String category;
   final String image;
+  final RatingModel ratingModel;
   ProductModel({
     required this.id,
     required this.title,
@@ -12,14 +13,28 @@ class ProductModel {
     required this.description,
     required this.category,
     required this.image,
+    required this.ratingModel,
   });
-  factory ProductModel.fromJason(jasodata) {
+  factory ProductModel.fromJason(jasonData) {
     return ProductModel(
-        id: jasodata['id'],
-        title: jasodata['title'],
-        price: jasodata['price'],
-        description: jasodata['description'],
-        category: jasodata['category'],
-        image: jasodata['image']);
+      id: jasonData['id'],
+      title: jasonData['title'],
+      price: jasonData['price'],
+      description: jasonData['description'],
+      category: jasonData['category'],
+      image: jasonData['image'],
+      ratingModel: RatingModel.fromJason(jasonData['rating']),
+    );
+  }
+}
+
+class RatingModel {
+  final double rate;
+  final int count;
+
+  RatingModel({required this.rate, required this.count});
+
+  factory RatingModel.fromJason(jasonData) {
+    return RatingModel(rate: jasonData['rate'], count: jasonData['count']);
   }
 }
