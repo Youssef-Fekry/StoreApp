@@ -4,9 +4,10 @@ import 'package:store_app/models/Product_model.dart';
 import 'package:http/http.dart' as http;
 
 class Category {
-  Future<List<ProductModel>> getCategoryProducts() async {
+  Future<List<ProductModel>> getCategoryProducts(
+      {required String category_name}) async {
     http.Response response = await http.get(
-      Uri.parse('https://fakestoreapi.com/products/category/:category_name'),
+      Uri.parse('https://fakestoreapi.com/products/category/$category_name'),
     );
 
     List<dynamic> data = jsonDecode(response.body);
