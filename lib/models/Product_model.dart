@@ -1,4 +1,7 @@
-class ProductModel {
+// ignore: file_names
+// ignore_for_file: camel_case_types, file_names
+
+class productmodel {
   final int id;
   final String title;
   final double price;
@@ -7,7 +10,7 @@ class ProductModel {
   final String image;
   final RatingModel ratingModel;
 
-  ProductModel({
+  productmodel({
     required this.id,
     required this.title,
     required this.price,
@@ -17,8 +20,8 @@ class ProductModel {
     required this.ratingModel,
   });
 
-  factory ProductModel.fromJason(jasonData) {
-    return ProductModel(
+  factory productmodel.fromJason(jasonData) {
+    return productmodel(
       id: jasonData['id'],
       title: jasonData['title'],
       price: jasonData['price'],
